@@ -10,12 +10,13 @@ const app = express();
 
 // setup routes
 import postRouter from "./routes/posts.js";
-app.use('/posts', postRouter)
 
 
 app.use(express.json({ limit: "30mb", extended: true }));
 app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
+app.use('/posts', postRouter)
 
 
 // Setup database
